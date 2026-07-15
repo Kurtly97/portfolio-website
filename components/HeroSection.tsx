@@ -32,23 +32,23 @@ export function HeroSection({ classNames }: HeroSectionProps): ReactNode {
           id="hero-heading"
           className={cn(
             "flex w-full min-w-0 flex-col gap-1",
-            "text-[clamp(1.125rem,6.75cqi,4rem)]",
-            "md:text-[clamp(2.25rem,8vw,4rem)]",
+            "text-[24px] leading-[1.15]",
+            "md:text-[clamp(2.25rem,8vw,4rem)] md:leading-[1.05]",
             "tracking-[-0.04em] md:tracking-[-1.5px]",
           )}
         >
           <span
             className={cn(
-              "font-heading font-bold leading-[1.05] text-neutral-darker",
-              "whitespace-nowrap",
+              "font-heading font-bold text-balance text-neutral-darker",
+              "md:whitespace-nowrap",
             )}
           >
             Most designers hand off.
           </span>
           <span
             className={cn(
-              "font-accent font-bold italic leading-[1.05] text-accent",
-              "whitespace-nowrap",
+              "font-accent font-bold italic text-balance text-accent",
+              "md:whitespace-nowrap",
             )}
           >
             I follow through.
