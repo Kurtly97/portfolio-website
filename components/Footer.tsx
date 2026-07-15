@@ -22,7 +22,7 @@ export function Footer({ classNames }: FooterProps): ReactNode {
         <p
           className={cn(
             "font-heading font-bold text-balance text-neutral-lightest",
-            "text-[24px] leading-[1.15]",
+            "text-[36px] leading-[1.15]",
             "md:whitespace-nowrap md:text-[clamp(1.5rem,6.5vw,3rem)]",
           )}
         >
@@ -31,7 +31,7 @@ export function Footer({ classNames }: FooterProps): ReactNode {
         <p
           className={cn(
             "font-accent font-bold italic tracking-[-1.5px] text-balance text-accent-soft",
-            "text-[24px] leading-[1.15]",
+            "text-[36px] leading-[1.15]",
             "md:whitespace-nowrap md:text-[clamp(1.5rem,6.5vw,3rem)] md:leading-none",
           )}
         >

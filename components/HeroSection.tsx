@@ -32,7 +32,7 @@ export function HeroSection({ classNames }: HeroSectionProps): ReactNode {
           id="hero-heading"
           className={cn(
             "flex w-full min-w-0 flex-col gap-1",
-            "text-[24px] leading-[1.15]",
+            "text-[36px] leading-[1.15]",
             "md:text-[clamp(2.25rem,8vw,4rem)] md:leading-[1.05]",
             "tracking-[-0.04em] md:tracking-[-1.5px]",
           )}
