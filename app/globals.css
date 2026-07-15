@@ -1,0 +1,38 @@
+@import "tailwindcss";
+@import "../styles/tokens.css";
+@config "../tailwind.config.js";
+
+@theme inline {
+  --font-serif: var(--font-kaisei-decol);
+  --font-sans: var(--font-manrope);
+  --font-accent: var(--font-inria-serif);
+}
+
+html {
+  overflow-x: clip;
+}
+
+body {
+  background: var(--color-scheme-1-background);
+  color: var(--color-scheme-1-text);
+  font-family: var(--font-text);
+  overflow-x: clip;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
