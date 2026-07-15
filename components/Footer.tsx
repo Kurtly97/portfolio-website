@@ -21,16 +21,18 @@ export function Footer({ classNames }: FooterProps): ReactNode {
       <div className="flex min-w-0 flex-col gap-1">
         <p
           className={cn(
-            "whitespace-nowrap font-heading font-bold text-neutral-lightest",
-            "text-[clamp(1.5rem,6.5vw,3rem)] leading-[1.15]",
+            "font-heading font-bold text-balance text-neutral-lightest",
+            "text-[24px] leading-[1.15]",
+            "md:whitespace-nowrap md:text-[clamp(1.5rem,6.5vw,3rem)]",
           )}
         >
           Let’s make something
         </p>
         <p
           className={cn(
-            "whitespace-nowrap font-accent font-bold italic tracking-[-1.5px]",
-            "text-[clamp(1.5rem,6.5vw,3rem)] leading-none text-accent-soft",
+            "font-accent font-bold italic tracking-[-1.5px] text-balance text-accent-soft",
+            "text-[24px] leading-[1.15]",
+            "md:whitespace-nowrap md:text-[clamp(1.5rem,6.5vw,3rem)] md:leading-none",
           )}
         >
           worth building
