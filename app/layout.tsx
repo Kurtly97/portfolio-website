@@ -30,7 +30,11 @@ export const metadata: Metadata = {
   title: "Kurt Lee Gayao",
   description: "Portfolio of Kurt Lee Gayao — UI/UX, web design, and development.",
   icons: {
-    icon: [{ url: "/logos/company-logo.png", type: "image/png" }],
+    icon: [
+      { url: "/favicon.ico", type: "image/png" },
+      { url: "/logos/company-logo.png", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
     apple: [{ url: "/logos/company-logo.png", type: "image/png" }],
   },
 };
