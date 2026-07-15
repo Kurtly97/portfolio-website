@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Inria_Serif, Kaisei_Decol, Manrope } from "next/font/google";
+import { FaviconTheme } from "@/components/FaviconTheme";
 import { cn } from "@/lib/cn";
 import "./globals.css";
 
@@ -32,21 +33,17 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "/favicon-light.png",
+        url: "/favicon-light-v3.png",
         type: "image/png",
         media: "(prefers-color-scheme: light)",
       },
       {
-        url: "/favicon-dark.png",
+        url: "/favicon-dark-v3.png",
         type: "image/png",
         media: "(prefers-color-scheme: dark)",
       },
-      {
-        url: "/favicon.ico",
-        type: "image/png",
-      },
     ],
-    apple: [{ url: "/logos/company-logo.png", type: "image/png" }],
+    apple: [{ url: "/favicon-light-v3.png", type: "image/png" }],
   },
 };
 
@@ -65,7 +62,10 @@ export default function RootLayout({
         "h-full antialiased",
       )}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <FaviconTheme />
+        {children}
+      </body>
     </html>
   );
 }
