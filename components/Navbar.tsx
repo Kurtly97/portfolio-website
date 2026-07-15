@@ -121,7 +121,7 @@ export function Navbar(): ReactNode {
               <Link
                 href={link.href}
                 className={cn(
-                  "block py-3 font-text text-large text-scheme-1-text",
+                  "block py-3 font-text text-regular text-scheme-1-text",
                   "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-darkest",
                 )}
                 onClick={() => setMenuOpen(false)}

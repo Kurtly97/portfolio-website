@@ -35,7 +35,7 @@ export function ProjectCard({
         </div>
 
         <div className="flex min-w-0 flex-col gap-1">
-          <p className="font-text text-small font-medium text-meta sm:text-medium">
+          <p className="font-text text-regular font-medium text-meta sm:text-medium">
             {project.category}
           </p>
           <h3

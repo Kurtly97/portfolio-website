@@ -60,7 +60,7 @@ export function CaseStudyBody({
             {section.body ? (
               <p
                 className={cn(
-                  "max-w-[900px] whitespace-pre-line font-text text-[1.05rem] font-normal",
+                  "max-w-[900px] whitespace-pre-line font-text text-small font-normal",
                   "leading-relaxed text-neutral-darker sm:text-large",
                 )}
               >

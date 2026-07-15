@@ -44,7 +44,7 @@ export function AboutSection({ classNames }: AboutSectionProps): ReactNode {
           </div>
         </div>
 
-        <p className="max-w-[741px] whitespace-pre-line text-pretty font-text text-[1.05rem] font-medium leading-relaxed text-neutral-darker sm:text-large">
+        <p className="max-w-[741px] whitespace-pre-line text-pretty font-text text-small font-medium leading-relaxed text-neutral-darker sm:text-large">
           {`I'm a designer who also builds. For the past 6 years at IOL Inc., I've led design, brand, and web where I handle everything from the first sketch to the live site.
 
 No handoff needed, because I do both sides. That means fewer gaps, faster turnaround, and one person who speaks both design and dev fluently. Open to full-time and contract roles in design, marketing, or both.`}

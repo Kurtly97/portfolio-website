@@ -40,7 +40,7 @@ export function Footer({ classNames }: FooterProps): ReactNode {
       <a
         href="mailto:hello@kurtleeg.work"
         className={cn(
-          "w-fit break-all font-text text-[1.05rem] font-medium text-neutral-lightest underline sm:text-large sm:break-normal",
+          "w-fit break-all font-text text-regular font-medium text-neutral-lightest underline sm:text-large sm:break-normal",
           "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-lightest",
         )}
       >
@@ -55,7 +55,7 @@ export function Footer({ classNames }: FooterProps): ReactNode {
               target="_blank"
               rel="noopener noreferrer"
               className={cn(
-                "font-text text-small font-medium text-neutral-lightest underline",
+                "font-text text-regular font-medium text-neutral-lightest underline",
                 "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-lightest",
               )}
             >

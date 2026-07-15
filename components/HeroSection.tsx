@@ -55,7 +55,7 @@ export function HeroSection({ classNames }: HeroSectionProps): ReactNode {
           </span>
         </h1>
 
-        <p className="max-w-[600px] text-pretty font-text text-[1.05rem] font-medium leading-normal text-neutral-darkest sm:text-large">
+        <p className="max-w-[600px] text-pretty font-text text-small font-medium leading-normal text-neutral-darkest sm:text-large">
           UI/UX Designer · Marketing Strategist · 6 years, concept to
           completion.
         </p>

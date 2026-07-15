@@ -46,7 +46,7 @@ export function CaseStudyHero({
           {study.category}
         </p>
 
-        <p className="whitespace-pre-line font-text text-[1.05rem] font-medium leading-relaxed text-neutral-darker sm:text-large">
+        <p className="whitespace-pre-line font-text text-small font-medium leading-relaxed text-neutral-darker sm:text-large">
           {study.overview}
         </p>
 
