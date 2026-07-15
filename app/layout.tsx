@@ -29,6 +29,10 @@ export const metadata: Metadata = {
   ),
   title: "Kurt Lee Gayao",
   description: "Portfolio of Kurt Lee Gayao — UI/UX, web design, and development.",
+  icons: {
+    icon: [{ url: "/logos/company-logo.png", type: "image/png" }],
+    apple: [{ url: "/logos/company-logo.png", type: "image/png" }],
+  },
 };
 
 export default function RootLayout({
