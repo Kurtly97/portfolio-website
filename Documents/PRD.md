@@ -38,7 +38,6 @@ A coded rebuild of Kurt Lee Gayao's portfolio — previously live on Framer at k
 ### Planned / Optional
 - Prev/next case study navigation between projects.
 - Missing-image fallback for broken project assets.
-- Deploy to production on Vercel (custom domain TBD).
 
 ## Out of Scope
 - CMS or admin dashboard — content is managed by editing data files directly (`data/projects.ts`, `data/caseStudies.ts`, `data/skills.ts`).
@@ -56,7 +55,7 @@ A coded rebuild of Kurt Lee Gayao's portfolio — previously live on Framer at k
 - **Styling:** Tailwind CSS v4, driven by `styles/tokens.css` (Figma DS variables)
 - **Typography:** Kaisei Decol (heading), Manrope (text), Inria Serif (accent)
 - **Data:** Static TypeScript modules under `data/`
-- **Deployment:** Vercel
+- **Deployment:** GitHub Pages (static export via GitHub Actions) + custom domain `kurtleeg.work`
 - **Build environment:** Cursor
 
 ## Figma Screens

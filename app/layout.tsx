@@ -24,6 +24,9 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+  ),
   title: "Kurt Lee Gayao",
   description: "Portfolio of Kurt Lee Gayao — UI/UX, web design, and development.",
 };
