@@ -1,7 +1,7 @@
 # Portfolio Site — PRD
 
 ## Product Overview
-A coded rebuild of Kurt Lee Gayao's portfolio — previously live on Framer at kurtleegayao.framer.website — as a Next.js/React site. Visual source of truth is the **Portfolio Website 2026** Figma file. Information architecture: Homepage + 6 case studies (all shipped) + Contact via footer. Visual language: **Kaisei Decol** (headings) + **Manrope** (body) + **Inria Serif** (accent/italic lines).
+A coded rebuild of Kurt Lee Gayao's portfolio — previously live on Framer at kurtleegayao.framer.website — as a Next.js/React site. **Live at [https://kurtleeg.work](https://kurtleeg.work).** Visual source of truth is the **Portfolio Website 2026** Figma file. Information architecture: Homepage + 6 case studies (all shipped) + Contact via footer. Visual language: **Kaisei Decol** (headings) + **Manrope** (body) + **Inria Serif** (accent/italic lines).
 
 ## Goals & Objectives
 - Move off Framer's builder constraints into a codebase Kurt fully owns and can extend.
@@ -14,7 +14,7 @@ A coded rebuild of Kurt Lee Gayao's portfolio — previously live on Framer at k
 
 ### Shipped — Homepage
 - Fixed nav with scroll-blur behavior; mobile hamburger drawer; anchors to About / Work / Contact (`/#about`, `/#work`, `/#contact` so they work from case study pages).
-- Hero: name label, Kaisei headline (“Most designers hand off.” on one line) + Inria Serif accent (“*I follow through.*”), role subcopy, dual CTAs.
+- Hero: name label (16px), Kaisei + Inria headline pair, role subcopy, dual CTAs.
 - Project grid: **6 equal cards** (no featured tier) linking to `/work/[slug]`.
 - About section: portrait, name, “Designer who builds” tagline, bio, LinkedIn CTA → [linkedin.com/in/kurtlee1397](https://www.linkedin.com/in/kurtlee1397/).
 - Skills strip: **Design** (Figma, Affinity, Illustrator, Photoshop, InDesign, After Effects) and **Development** (Framer, HTML/CSS/JS, Next.js) as 73×73 brand-icon tiles with Manrope labels. HTML/CSS/JS tile uses a black (`#000`) background.
@@ -35,6 +35,13 @@ A coded rebuild of Kurt Lee Gayao's portfolio — previously live on Framer at k
 | Cornell Ingredients | `cornell-ingredients` | `/work/cornell-ingredients` | [cornellingredients.com](https://cornellingredients.com) |
 | The AccountingBytes | `the-accountingbytes` | `/work/the-accountingbytes` | [theaccountingbytes.com](https://theaccountingbytes.com) |
 
+### Shipped — Deployment & brand chrome
+- **Static export** (`output: "export"`, `trailingSlash`, `images.unoptimized`) for GitHub Pages.
+- **CI deploy:** `.github/workflows/deploy-pages.yml` builds on push to `main` and publishes `out/`.
+- **Custom domain:** `kurtleeg.work` (`public/CNAME` + Namecheap DNS A records → GitHub Pages; HTTPS enforced).
+- **Favicon:** light/dark variants (`favicon-light-v3.png` / `favicon-dark-v3.png`) via `prefers-color-scheme`; `FaviconTheme` client swap with cache-bust query for sticky browser tabs. Mark uses company logo geometry (square, aspect preserved).
+- **`metadataBase`:** `NEXT_PUBLIC_SITE_URL` (production `https://kurtleeg.work`).
+
 ### Planned / Optional
 - Prev/next case study navigation between projects.
 - Missing-image fallback for broken project assets.
@@ -49,19 +56,36 @@ A coded rebuild of Kurt Lee Gayao's portfolio — previously live on Framer at k
 - Embedded contact form or calendar booking widgets (Contact stays mailto + socials in the footer).
 - Stats panel / credential metrics strip (not in the Homepage Figma frame).
 - Featured vs. standard project card tiers (Figma uses one equal card treatment for all six).
+- Server-rendered features that need a Node host (ISR, default `next/image` optimization, Server Actions) — not compatible with static GitHub Pages export.
 
 ## Tech Stack
-- **Framework:** Next.js App Router; dynamic case study routes at `/work/[slug]`
+- **Framework:** Next.js App Router; static export; case study routes at `/work/[slug]/`
 - **Styling:** Tailwind CSS v4, driven by `styles/tokens.css` (Figma DS variables)
 - **Typography:** Kaisei Decol (heading), Manrope (text), Inria Serif (accent)
 - **Data:** Static TypeScript modules under `data/`
-- **Deployment:** GitHub Pages (static export via GitHub Actions) + custom domain `kurtleeg.work`
+- **Deployment:** GitHub Pages via GitHub Actions + custom domain `kurtleeg.work`
+- **Repo:** [github.com/Kurtly97/portfolio-website](https://github.com/Kurtly97/portfolio-website)
 - **Build environment:** Cursor
+- **Local preview of export:** `npm run build` then `npm run preview:export`
+
+## Responsive type scale (mobile-first refinements)
+
+Shipped adjustments vs. desktop Figma (viewport &lt; `md` / body &lt; `sm` as noted):
+
+| Role | Mobile | Desktop / larger |
+|---|---|---|
+| Hero & footer display headlines | **36px**; may wrap (`text-balance`); `nowrap` from `md` | Fluid clamp (hero up to 4rem; footer up to 3rem) |
+| Body / role / bio / section copy | **14px** (`text-small`) | **20px** (`text-large`) from `sm` where applied |
+| Subheadings, labels, nav, buttons, links | **16px** (`text-regular`) | Same or larger per component (`sm`/`md` bumps) |
+| Project card category | 16px | 18px (`sm:text-medium`) |
+| Project card summary | 14px + `text-pretty` | 18px from `sm` |
+
+Orphan / widow mitigation: `text-pretty` on hero role line, project summaries, and About bio.
 
 ## Figma Screens
 | Screen | Figma Link | Status |
 |---|---|---|
-| Homepage | [node 1-2](https://www.figma.com/design/wccPUxDQDokA0si4PUwTVL/Portfolio-Website-2026?node-id=1-2&m=dev) | Implemented |
+| Homepage | [node 1-2](https://www.figma.com/design/wccPUxDQDokA0si4PUwTVL/Portfolio-Website-2026?node-id=1-2&m=dev) | Implemented (+ mobile type polish) |
 | The AccountingBytes | [node 15-104](https://www.figma.com/design/wccPUxDQDokA0si4PUwTVL/Portfolio-Website-2026?node-id=15-104&m=dev) | Implemented |
 | ARCS | [node 17-78](https://www.figma.com/design/wccPUxDQDokA0si4PUwTVL/Portfolio-Website-2026?node-id=17-78&m=dev) | Implemented |
 | 36 Days of Type | [node 17-144](https://www.figma.com/design/wccPUxDQDokA0si4PUwTVL/Portfolio-Website-2026?node-id=17-144&m=dev) | Implemented |
@@ -87,7 +111,7 @@ The single scannable entry point for recruiters and clients — establishes who 
 **Page structure (top → bottom)**
 1. `Navbar` — logo; About / Work / Contact; fixed; bottom border; scroll blur
 2. `HeroSection` — “Most designers hand off.” / “*I follow through.*”; View Work + Get in Touch
-3. `ProjectGrid` / `ProjectCard` — 6 projects from `data/projects.ts` → `/work/[slug]`
+3. `ProjectGrid` / `ProjectCard` — 6 projects from `data/projects.ts` → `/work/[slug]/`
 4. `AboutSection` + `SkillsList` — portrait, bio, LinkedIn; Design + Development icon grids from `data/skills.ts`
 5. `Footer` (`#contact`) — “Let’s make something *worth building*”; email; socials
 
@@ -99,21 +123,22 @@ The single scannable entry point for recruiters and clients — establishes who 
 - Footer: CTA copy, email, social links, copyright line.
 
 **Components**
-`Navbar`, `CompanyLogo`, `HeroSection`, `ProjectGrid`, `ProjectCard`, `AboutSection`, `SkillsList`, `Button`, `Footer`.
+`Navbar`, `CompanyLogo`, `HeroSection`, `ProjectGrid`, `ProjectCard`, `AboutSection`, `SkillsList`, `Button`, `Footer`, `FaviconTheme` (layout).
 
 **States & edge cases**
 - Nav: default (top of page) vs. scrolled (blurred background).
 - Mobile: nav collapses to hamburger drawer; project grid stacks; skills grid wraps (3 cols → 6 on `sm+` for Design).
+- Hero/footer headlines wrap on small viewports so type stays within the padded content width (no horizontal overflow).
 - Project images: lazy-load; missing-image fallback still TBD.
 - Long project titles: wrap within card layout (fluid type).
 - Skill icons: icon-only PNGs under `public/skills/icons/` + HTML labels (do not bake labels into assets — avoids double-text / crop overlays). Brand colors preserved on Design tools; Development tiles are monochrome (Framer, Next.js) except as intentionally styled (HTML/CSS/JS bg `#000`).
 
 ---
 
-## Screen: Case Study Template (`/work/[slug]`) — **Implemented**
+## Screen: Case Study Template (`/work/[slug]/`) — **Implemented**
 
 **What is this page about?**
-A single reusable template rendering one project's full story — overview, scope/tools/year, optional Visit Website, and sectioned gallery narrative — for any of the 6 case studies via a dynamic route.
+A single reusable template rendering one project's full story — overview, scope/tools/year, optional Visit Website, and sectioned gallery narrative — for any of the 6 case studies via a dynamic route. Trailing slash URLs match static export output.
 
 **User flows**
 - Arrive via ProjectGrid click → read case study top to bottom → optionally Visit Website (external) → return via nav to homepage anchors or drop into Contact from the footer CTA.
@@ -145,8 +170,20 @@ A single reusable template rendering one project's full story — overview, scop
 - Optional fields omitted → UI blocks simply don’t render (no Visit Website without `websiteUrl`).
 - Variable gallery counts — body handles 0–N images per section and across studies.
 - Multi-line scope (Vivita) renders as a semantic bullet list; other studies keep “Scope: …” as one line.
-- Invalid/unknown slug → Next.js `notFound()` / 404.
+- Invalid/unknown slug → static host 404 (all valid slugs prebuilt; no Node runtime `notFound()` after export).
 - External Visit Website / challenge / social links open in a new tab with `rel="noopener noreferrer"`.
+
+---
+
+## Deployment (GitHub Pages)
+
+| Item | Detail |
+|---|---|
+| Build | `npm ci` → `npm run build` → upload `./out` |
+| Trigger | Push to `main` (and `workflow_dispatch`) |
+| Domain | `kurtleeg.work` (apex A records to GitHub Pages IPs) |
+| Artifact extras | `public/.nojekyll`, `public/CNAME` |
+| Note | Project URL `…github.io/portfolio-website/` is unstyled by design (no `basePath`); use the custom domain |
 
 ---
 
@@ -154,7 +191,8 @@ A single reusable template rendering one project's full story — overview, scop
 
 | Channel | URL |
 |---|---|
-| Email | `mailto:hello@kurtleeg.work` |
+| Email | `mailto:hello@kurtleeg.work` (domain email forwarding configured outside the app) |
 | LinkedIn | https://www.linkedin.com/in/kurtlee1397/ |
 | Behance | https://www.behance.net/kurtleegayao |
 | GitHub | https://github.com/Kurtly97 |
+| Site | https://kurtleeg.work |
