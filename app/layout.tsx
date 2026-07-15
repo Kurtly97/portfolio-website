@@ -31,10 +31,21 @@ export const metadata: Metadata = {
   description: "Portfolio of Kurt Lee Gayao — UI/UX, web design, and development.",
   icons: {
     icon: [
-      { url: "/favicon.ico", type: "image/png" },
-      { url: "/logos/company-logo.png", type: "image/png" },
+      {
+        url: "/favicon-light.png",
+        type: "image/png",
+        media: "(prefers-color-scheme: light)",
+      },
+      {
+        url: "/favicon-dark.png",
+        type: "image/png",
+        media: "(prefers-color-scheme: dark)",
+      },
+      {
+        url: "/favicon.ico",
+        type: "image/png",
+      },
     ],
-    shortcut: "/favicon.ico",
     apple: [{ url: "/logos/company-logo.png", type: "image/png" }],
   },
 };
